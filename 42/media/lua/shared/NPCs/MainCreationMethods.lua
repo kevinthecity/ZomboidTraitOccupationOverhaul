@@ -387,102 +387,116 @@ BaseGameCharacterDetails.DoTraits = function()
     herbalist:getFreeRecipes():add("Common Mallow Growing Season");
     herbalist:getFreeRecipes():add("Wild Garlic Growing Season");
 
-    local wilderness = TraitFactory.addTrait("WildernessKnowledge", getText("UI_trait_WildernessKnowledge"), 8, getText("UI_trait_WildernessKnowledgeDesc"), false);
-    -- increased the point cost, as it's now a general suite of wilderness survival skills
---     local herbalist = TraitFactory.addTrait("Herbalist", getText("UI_trait_Herbalist"), 4, getText("UI_trait_HerbalistDesc"), false);
-    wilderness:addXPBoost(Perks.PlantScavenging, 1)
-    wilderness:addXPBoost(Perks.FlintKnapping, 1)
-	wilderness:addXPBoost(Perks.Maintenance, 1)
-    wilderness:addXPBoost(Perks.Carving, 1)
-    wilderness:getFreeRecipes():add("Herbalist");
-    wilderness:getFreeRecipes():add("MakeStoneBlade");
-    wilderness:getFreeRecipes():add("MakeLongStoneBlade");
-    wilderness:getFreeRecipes():add("MakeStoneBladeScythe");
-    wilderness:getFreeRecipes():add("FireHardenSpear");
-    wilderness:getFreeRecipes():add("MakeCrudeWhetstone");
-    wilderness:getFreeRecipes():add("MakePlantainPoultice");
-    wilderness:getFreeRecipes():add("MakeComfreyPoultice");
-    wilderness:getFreeRecipes():add("MakeWildGarlicPoultice");
+    ProfessionFramework.addTrait('WildernessKnowledge', {
+        name = "UI_trait_WildernessKnowledge",
+        description = "UI_trait_WildernessKnowledgeDesc",
+        cost = 8,
+        xp = {
+            [Perks.PlantScavenging] = 1,
+            [Perks.FlintKnapping] = 1,
+            [Perks.Maintenance] = 1,
+            [Perks.Carving] = 1,
+        },
+        recipes = {"Herbalist", "Make Stone Blade", "Make Long Stone Blade", "Make Stone Blade Scythe", "Fire Harden Spear", "Make Crude Whetstone", "Make Plantain Poultice", "Make Comfrey Poultice", "Make Wild Garlic Poultice", "Black Sage Growing Season", "Broadleaf Plaintain Growing Season", "Comfrey Growing Season", "Common Mallow Growing Season", 
+		"Wild Garlic Growing Season", "Bind Spear", "Wire Spear", "Sharpen Bone", "Make Bone Fishing Hook", "Make Bone Sewing Needle", "Make Bone Awl", "Make Stone Awl", "Make Stone Chisel", "Make Stone Drill", "Make Large Stone Axe Head", "Make Stone Maul Head", "Make Bone Club", "Make Bone Hatchet Head", "Make Jawbone Axe", "Make Fishing Rod", "Make Snare Trap"},        
+    })
 
-    wilderness:getFreeRecipes():add("Black Sage Growing Season");
-    wilderness:getFreeRecipes():add("Broadleaf Plantain Growing Season");
-    wilderness:getFreeRecipes():add("Comfrey Growing Season");
-    wilderness:getFreeRecipes():add("Common Mallow Growing Season");
-    wilderness:getFreeRecipes():add("Wild Garlic Growing Season");
+    ProfessionFramework.addTrait('Brawler', {
+        name = "UI_trait_BarFighter",
+        description = "UI_trait_BarFighterDesc",
+        cost = 6,
+        xp = {
+            [Perks.Axe] = 1,
+            [Perks.Blunt] = 1,
+        },
+        recipes = {"Barbed Wire Weapon", "Can Reinforce Long Weapon", "Can Reinforce Short Weapon", "Can Reinforce Weapon", "Sheet Metal Weapon"},        
+    })
 
-    wilderness:getFreeRecipes():add("BindSpear");
-    wilderness:getFreeRecipes():add("WireSpear");
-    wilderness:getFreeRecipes():add("SharpenBone");
-    wilderness:getFreeRecipes():add("MakeBoneFishingHook");
-    wilderness:getFreeRecipes():add("MakeBoneSewingNeedle");
-    wilderness:getFreeRecipes():add("MakeBoneAwl");
-    wilderness:getFreeRecipes():add("MakeStoneAwl");
-    wilderness:getFreeRecipes():add("MakeStoneChisel");
-    wilderness:getFreeRecipes():add("MakeStoneDrill");
-    wilderness:getFreeRecipes():add("MakeLargeStoneAxeHead");
-    wilderness:getFreeRecipes():add("MakeStoneMaulHead");
-
-    wilderness:getFreeRecipes():add("MakeBoneClub");
-    wilderness:getFreeRecipes():add("MakeBoneHatchetHead");
-    wilderness:getFreeRecipes():add("MakeJawboneAxe");
-    wilderness:getFreeRecipes():add("MakeFishingRod");
-    wilderness:getFreeRecipes():add("MakeSnareTrap");
-
-	local barfighter = TraitFactory.addTrait("Brawler", getText("UI_trait_BarFighter"), 6, getText("UI_trait_BarFighterDesc"), false);
-	barfighter:addXPBoost(Perks.Axe, 1)
-	barfighter:addXPBoost(Perks.Blunt, 1)
-	barfighter:getFreeRecipes():add("BarbedWireWeapon");
-	barfighter:getFreeRecipes():add("CanReinforceLongWeapon");
-	barfighter:getFreeRecipes():add("CanReinforceShortWeapon");
-	barfighter:getFreeRecipes():add("CanReinforceWeapon");
-	barfighter:getFreeRecipes():add("SheetMetalWeapon");
-
-    local formerscout = TraitFactory.addTrait("Formerscout", getText("UI_trait_Scout"), 6, getText("UI_trait_ScoutDesc"), false);
-    formerscout:addXPBoost(Perks.Doctor, 1)
-    formerscout:addXPBoost(Perks.PlantScavenging, 1)
+    ProfessionFramework.addTrait('Formerscout', {
+        name = "UI_trait_Scout",
+        description = "UI_trait_ScoutDesc",
+        cost = 6,
+        xp = {
+            [Perks.Doctor] = 1,
+            [Perks.PlantScavenging] = 1,
+        },
+    })
 
 --	local football = TraitFactory.addTrait("PlaysFootball", "Plays Football", 4, getText("UI_trait_outdoorsmandesc"), false);
 
 --	football:addXPBoost(Perks.Sprinting, 1)
 
-	local baseball = TraitFactory.addTrait("BaseballPlayer", getText("UI_trait_PlaysBaseball"), 4, getText("UI_trait_PlaysBaseballDesc"), false);
-	baseball:addXPBoost(Perks.Blunt, 1)
+    ProfessionFramework.addTrait('BaseballPlayer', {
+        name = "UI_trait_PlaysBaseball",
+        description = "UI_trait_PlaysBaseballDesc",
+        cost = 4,
+        xp = {
+            [Perks.Blunt] = 1,
+        },
+    })
 
-	local backpacker = TraitFactory.addTrait("Hiker", getText("UI_trait_Hiker"), 6, getText("UI_trait_HikerDesc"), false);
-	backpacker:addXPBoost(Perks.PlantScavenging, 1)
-	backpacker:addXPBoost(Perks.Trapping, 1)
-    backpacker:getFreeRecipes():add("MakeStickTrap");
-    backpacker:getFreeRecipes():add("MakeSnareTrap");
-    backpacker:getFreeRecipes():add("MakeWoodenBoxTrap");
+    ProfessionFramework.addTrait('Hiker', {
+        name = "UI_trait_Hiker",
+        description = "UI_trait_HikerDesc",
+        cost = 6,
+        xp = {
+            [Perks.PlantScavenging] = 1,
+            [Perks.Trapping] = 1,
+            [Perks.Carving] = 1,
+        },
+        recipes = {"Make Stick Trap", "Make Snare Trap", "Make Trap Box"},        
+    })
 
     ProfessionFramework.addTrait('Hunter', {
         name = "UI_trait_Hunter",
         description = "UI_trait_HunterDesc",
         cost = 8,
         xp = {
-            [Perks.Aiming] = 2,
-            [Perks.Trapping] = 3,
-            [Perks.Sneak] = 4,
-            [Perks.SmallBlade] = 5,
+            [Perks.Aiming] = 1,
+            [Perks.Trapping] = 1,
+            [Perks.Sneak] = 1,
+            [Perks.SmallBlade] = 1,
         },
         recipes = {"Make Stick Trap", "Make Snare Trap", "Make Wooden Cage Trap", "Make Trap Box", "Make Cage Trap"},        
     })
 
-	local gym = TraitFactory.addTrait("Gymnast", getText("UI_trait_Gymnast"), 5, getText("UI_trait_GymnastDesc"), false);
-	gym:addXPBoost(Perks.Lightfoot, 1)
-	gym:addXPBoost(Perks.Nimble, 1)
-	
-	local carenthusiast = TraitFactory.addTrait("Mechanics", getText("UI_trait_Mechanics"), 3, getText("UI_trait_MechanicsDesc"), false);
-	carenthusiast:addXPBoost(Perks.Mechanics, 1);
-	carenthusiast:getFreeRecipes():add("Basic Mechanics");
-	carenthusiast:getFreeRecipes():add("Intermediate Mechanics");
-	TraitFactory.addTrait("Mechanics2", getText("UI_trait_Mechanics"), 0, getText("UI_trait_Mechanics2Desc"), true);
+    ProfessionFramework.addTrait('Gymnast', {
+        name = "UI_trait_Gymnast",
+        description = "UI_trait_GymnastDesc",
+        cost = 5,
+        xp = {
+            [Perks.Lightfoot] = 1,
+            [Perks.Nimble] = 1,
+        },
+    })
 
-	local whittler = TraitFactory.addTrait("Whittler", getText("UI_trait_Whittler"), 2, getText("UI_trait_WhittlerDesc"), false);
-	whittler:addXPBoost(Perks.Carving, 2)
-    whittler:getFreeRecipes():add("SharpenBone");
-    whittler:getFreeRecipes():add("MakeBoneFishingHook");
-    whittler:getFreeRecipes():add("MakeBoneSewingNeedle");
+    ProfessionFramework.addTrait('Mechanics', {
+        name = "UI_trait_Mechanics",
+        description = "UI_trait_MechanicsDesc",
+        cost = 3,
+        xp = {
+            [Perks.Mechanics] = 1,
+        },
+        recipes = {"Basic Mechanics", "Intermediate Mechanics"},
+        exclude = {"Mechanics2"},
+    })
+	
+	ProfessionFramework.addTrait("Mechanics2", {
+    name = "UI_trait_Mechanics",
+    description = "UI_trait_Mechanics2Desc",
+    profession = true,
+})
+	
+    ProfessionFramework.addTrait('Whittler', {
+        name = "UI_trait_Whittler",
+        description = "UI_trait_WhittlerDesc",
+        cost = 2,
+        xp = {
+            [Perks.Carving] = 2,
+        },
+        recipes = {"Sharpen Bone", "Make Bone Fishing Hook", "Make Bone Sewing Needle"},        
+    })
+
 
 	--TraitFactory.addTrait("Dismantler", getText("UI_trait_Dismantler"), 2, getText("UI_trait_DismantlerDesc"), false);
 	
