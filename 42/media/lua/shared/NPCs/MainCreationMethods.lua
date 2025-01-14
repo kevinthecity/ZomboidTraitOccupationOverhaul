@@ -1,12 +1,22 @@
-ProfessionFramework.addTrait('Hunter', {
-    name = "UI_prof_parkranger",
-    description = "UI_trait_HunterDesc",
-    cost = 8,
-    xp = {
-        [Perks.Aiming] = 2,
-        [Perks.Trapping] = 3,
-        [Perks.Sneak] = 4,
-        [Perks.SmallBlade] = 5,
+ProfessionFramework.addTrait('Nightmares', {
+    name = "UI_trait_nightmares",
+    description = "UI_trait_nightmaresdesc",
+    exclude = {"Desensitized"},
+    cost = -4,
+    requiresSleepEnabled = true,
+    inventory = {
+        -- starting kit to help get back to sleep
+        ["Base.PillsBeta"] = 1,
+        ["Base.PillsSleepingTablets"] = 1,
     },
-    recipes = {"Make Stick Trap", "Make Snare Trap", "Make Wooden Cage Trap", "Make Trap Box", "Make Cage Trap"},        
+    OnGameStart = function(trait)
+        -- add a new event to trigger every ten minutes
+        Events.EveryTenMinutes.Add(function()
+            local p = getSpecificPlayer(0)
+            if p:isAsleep() and ZombRand(100) < 2 then
+                p:forceAwake()
+                p:getStats():setPanic(90)
+            end
+        end)
+    end
 })
