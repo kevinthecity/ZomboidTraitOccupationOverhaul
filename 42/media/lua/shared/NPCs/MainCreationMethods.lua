@@ -460,10 +460,10 @@ BaseGameCharacterDetails.DoTraits = function()
         description = "UI_trait_HunterDesc",
         cost = 8,
         xp = {
-            [Perks.Aiming] = 1,
-            [Perks.Trapping] = 1,
-            [Perks.Sneak] = 1,
-            [Perks.SmallBlade] = 1,
+            [Perks.Aiming] = 2,
+            [Perks.Trapping] = 3,
+            [Perks.Sneak] = 4,
+            [Perks.SmallBlade] = 5,
         },
         recipes = {"Make Stick Trap", "Make Snare Trap", "Make Wooden Cage Trap", "Make Trap Box", "Make Cage Trap"},        
     })
