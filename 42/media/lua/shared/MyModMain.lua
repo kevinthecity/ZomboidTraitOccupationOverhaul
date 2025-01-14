@@ -1,7 +1,12 @@
-if ProfessionFramework then
-    ProfessionFramework.addTrait('Brave2', {
-        cost = -4, -- Adjusted cost for the Brave trait
-    })
-else
-    print("Profession Framework is not loaded.")
-end
+ProfessionFramework.addTrait('Hunter', {
+    name = "UI_prof_parkranger",
+    description = "UI_trait_HunterDesc",
+    cost = 8,
+    xp = {
+        [Perks.Aiming] = 2,
+        [Perks.Trapping] = 3,
+        [Perks.Sneak] = 4,
+        [Perks.SmallBlade] = 5,
+    },
+    recipes = {"Make Stick Trap", "Make Snare Trap", "Make Wooden Cage Trap", "Make Trap Box", "Make Cage Trap"},        
+})
