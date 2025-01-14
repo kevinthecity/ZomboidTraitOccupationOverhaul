@@ -1,6 +1,6 @@
-name=Progressive Repair Mod for 42 (Root)
-id=prm
-description=A balance between two extremes
+name=Trait and Occupation Overhaul for 42 (Root)
+id=TraitAndOccupationOverhaulB42
+description=Making things more worthwhile
 poster=image.png
-version=0.1
+version=0.11
 require=\ProfessionFrameworkB42
