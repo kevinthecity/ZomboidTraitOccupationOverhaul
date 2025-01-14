@@ -1,6 +1,6 @@
 name=Progressive Repair Mod for 42
 id=prm
 description=A balance between two extremes
-poster=preview.png
+poster=image.png
 version=0.1
-require=professionframeworkb42
+require=\ProfessionFrameworkB42
