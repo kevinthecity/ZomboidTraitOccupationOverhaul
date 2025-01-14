@@ -456,7 +456,7 @@ BaseGameCharacterDetails.DoTraits = function()
     backpacker:getFreeRecipes():add("MakeWoodenBoxTrap");
 
     ProfessionFramework.addTrait('Hunter', {
-        name = "UI_prof_parkranger",
+        name = "UI_trait_Hunter",
         description = "UI_trait_HunterDesc",
         cost = 8,
         xp = {
@@ -467,7 +467,6 @@ BaseGameCharacterDetails.DoTraits = function()
         },
         recipes = {"Make Stick Trap", "Make Snare Trap", "Make Wooden Cage Trap", "Make Trap Box", "Make Cage Trap"},        
     })
-    
 
 	local gym = TraitFactory.addTrait("Gymnast", getText("UI_trait_Gymnast"), 5, getText("UI_trait_GymnastDesc"), false);
 	gym:addXPBoost(Perks.Lightfoot, 1)
